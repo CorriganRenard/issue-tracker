@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="issueTracker">
+    <h2>Issues</h2>
+
+      <div id="issue_list" >
+
+        <div style="margin-bottom: 10px">
+
+          <span>
+            Status:
+            <select>
+              <option>Open</option>
+              <option>Resolved</option>
+              <option>All</option>
+            </select>
+          </span>
+
+          <span>
+            Tag:
+            <select>
+              <option>All</option>
+              <option>gpslev</option>
+              <option>billing</option>
+              <option>cell-reception</option>
+            </select>
+          </span>
+
+        </div>
+
+
+  <!-- 				<p>
+        Filter by Customer ID:
+        <input type="text" name="filter_customer_number" value="">
+  -->
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <!-- <th>ID</th> -->
+                    <th>Date Created/Modified</th>
+                    <th>Customer (optional)</th>
+                    <th>Description</th>
+                    <th>Tags</th>
+                    <th>Status</th>
+                    <th>Devices (optional)</th>
+                    <th>Contact Email</th>
+                    <th>Contact Name</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="issue in issues" >
+                    <!-- <th scope="row">10</th> -->
+                    <td> {{ issue.CreatedAt }} /<br/> {{ issue.UpdatedAt }}</td>
+                    <td> {{ issue.Customer }} </td>
+                    <td> {{ issue.Description }} </td>
+                    <td>
+                      <span class="label label-info"> {{ issue.Tags }} </span>
+                    </td>
+                    <td>Open</td>
+                    <td> {{ issue.Devices }} </td>
+                    <td> {{ issue.Contact_email }} </td>
+                    <td> {{ issue.Contact_name }} </td>
+                    <td>
+                      <a href="issue-detail?id=0">View/Edit &raquo;</a>
+                      <!-- <a href="#" v-on:click="handleDetailClick">View/Edit &raquo;</a> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="button" class="new-signup-button btn btn-primary pull-right">New Issue</button>
+
+        TODO: can we put images in here?
+
+      </div>
+
+  </div>
+
+
+
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+  <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
